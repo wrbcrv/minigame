@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #020402;
+    color: #fff;
+    margin:  0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #1D1E2C;
+    user-select: none;
+}
+
+.score, .attemps, .level {
+    flex-basis: 200px;
+}
+
+.attemps {
+    text-align: center
+}
+
+.level {
+    text-align: right;
+}
+
+#btn {
+    background-color: #DD2D4A;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    grid-gap: 10px;
+    font-weight: 600;
+    user-select: none;
+}
+
+.container > .grid-item {
+    display: grid;
+    place-items: center;
+}
+
+.green {
+    background-color: #28965A !important;
+}
+
+.red {
+    background-color: #DD2D4A !important;
+}
+
+.grid-item {
+    transition: all .2s;
+    width : 100px;
+    height: 100px;
+    cursor: pointer;
+    background-color: #822FAF;
+    border: none;
+    font: inherit;
+    color: #fff;
+}
+
+.msg-container {    
+    width:  100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;   
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.msg-container.show {
+    display: flex;
+}
+
+.msg-box {
+    background-color: #fff;
+    padding: 20px 80px;
+    text-align: center;
+}
+
+.msg {
+    font-size: 15px;
+    color: #000;
+}
+
+#msg-score {
+    display: block;
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+#button {
+    display: block;
+    background-color: #DD2D4A;
+    padding: 10px 50px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: 80px 80px 80px;
+        grid-template-rows   : 80px 80px 80px;
+    }
+
+    .grid-item {
+        width : 80px;
+        height: 80px;
+    }
+}

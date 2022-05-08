@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body onload="startGame()">
+    <div class="status-container">
+        <span id="score" class="score">Score: 0</span>
+        <span id="attemps" class="attemps">Tentativas: ?</span>
+        <span id="level" class="level">Nível: ?</span>
+    </div>
+    <div class="container">
+        <div class="grid-container">
+            <button class="grid-item">0</button>
+            <button class="grid-item">1</button>
+            <button class="grid-item">2</button>
+            <button class="grid-item">3</button>
+            <button class="grid-item">4</button>
+            <button class="grid-item">5</button>
+            <button class="grid-item">6</button>
+            <button class="grid-item">7</button>
+            <button class="grid-item">8</button>
+        </div>
+    </div>
+    <div class="msg-container">
+        <div class="msg-box">
+            <div class="msg">
+                <span>Voce perdeu!</span>
+                <br>
+                <span>Score</span>
+            </div>
+            <span id="msg-score"></span>
+            <span id="button">Tente novamente</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
