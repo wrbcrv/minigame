@@ -2,8 +2,8 @@ const arrayElements = document.querySelectorAll('.grid-item')
 const msgContainer = document.querySelector('.msg-container')
 const restartButton = document.querySelector('#button')
 let showScore = document.querySelector('#score')
-let showBoxScore = document.querySelector('#msg-score')
 let showAttemps = document.querySelector('#attemps')
+let showBoxScore = document.querySelector('#msg-score')
 let score
 let attemps
 
@@ -13,7 +13,7 @@ function startGame() {
     score = 0
 
     for (let pos = 0; pos < arrayElements.length; pos++) {
-        arrayElements[pos].addEventListener('click', () => {    
+        arrayElements[pos].addEventListener('click', () => {
             showAttemps.innerHTML = `Tentativas: ${attemps}`
 
             if (pos === getRandomNumber) {
@@ -45,7 +45,11 @@ function startGame() {
                     })
                 }
 
-                showBoxScore.innerHTML = score
+                if (score == 0) 
+                    showBoxScore.innerHTML = `${score}`
+                else
+                    showBoxScore.innerHTML = `-${score}`
+
                 arrayElements[pos].className = arrayElements[pos].className.replace(' red', '')
                 arrayElements[pos].className += ' red'
 		        looseGameSound()
@@ -64,6 +68,11 @@ function looseGameSound() {
     looseSound.play()
 }
 
+function resetStatus() {
+    showScore.innerHTML = `Score: ${score}`
+    showAttemps.innerHTML = `Tentativas: ${attemps + 1}`
+}
+
 function winGame() {
     getRandomNumber = Math.floor(Math.random() * arrayElements.length)
 
@@ -74,18 +83,21 @@ function winGame() {
             arrayElements[i].disabled = false
             attemps = 0
             attemps += 2
+            resetStatus()
         }
     }, 3000);
 }
 
 function restartGame() {
     getRandomNumber = Math.floor(Math.random() * arrayElements.length)
-
+    
     for (let i = 0; i < arrayElements.length; i++) {
         arrayElements[i].classList.remove('green')
         arrayElements[i].classList.remove('red')
         arrayElements[i].disabled = false
         attemps = 0
         attemps += 2
+        score = 0
+        resetStatus()
     }
 }

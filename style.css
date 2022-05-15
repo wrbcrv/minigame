@@ -15,8 +15,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #1D1E2C;
+    margin: 10px;
+    border-radius: 5px;
+    background-color:#1D1E2C;
     user-select: none;
 }
 
@@ -30,14 +31,6 @@ body {
 
 .level {
     text-align: right;
-}
-
-#btn {
-    background-color: #DD2D4A;
-    padding: 8px 20px;
-    cursor: pointer;
-    border-radius: 50px;
-    font-size: 15px;
 }
 
 .container {
@@ -77,6 +70,7 @@ body {
     cursor: pointer;
     background-color: #822FAF;
     border: none;
+    border-radius: 5px;
     font: inherit;
     color: #fff;
 }
@@ -101,6 +95,7 @@ body {
 .msg-box {
     background-color: #fff;
     padding: 20px 80px;
+    border-radius: 5px;
     text-align: center;
 }
 
@@ -125,6 +120,10 @@ body {
     color: #fff;
     border-radius: 50px;
     cursor: pointer;
+}
+
+#button:hover {
+    background-color: #AF1D35;
 }
 
 @media screen and (max-width: 992px) {
