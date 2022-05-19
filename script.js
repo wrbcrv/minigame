@@ -76,7 +76,7 @@ function resetStatus() {
 function winGame() {
     getRandomNumber = Math.floor(Math.random() * arrayElements.length)
 
-    setTimeout(function () {
+    setTimeout(() => {
         for (let i = 0; i < arrayElements.length; i++) {
             arrayElements[i].classList.remove('green')
             arrayElements[i].classList.remove('red')
