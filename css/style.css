@@ -6,8 +6,7 @@ body {
     background-color: #020402;
     color: #fff;
     margin:  0;
-    padding: 0;
-    
+    padding: 0;   
 }
 
 .intro {
@@ -133,11 +132,11 @@ body {
     border-radius: 5px;
     font: inherit;
     color: #fff;
-    opacity: 0;
+    visibility: hidden;
 }
 
 .reveal {
-    opacity: 1;
+    visibility: visible;
     animation: revealAnimation .5s;
 }
 
