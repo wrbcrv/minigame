@@ -1,6 +1,8 @@
 const arrayElements = document.querySelectorAll('.grid-item')
 const msgContainer = document.querySelector('.msg-container')
 const restartButton = document.querySelector('#button')
+const helpButton = document.querySelector('.help-button')
+const helpContainer = document.querySelector('.help-container')
 let showScore = document.querySelector('#score')
 let showAttemps = document.querySelector('#attemps')
 let showBoxScore = document.querySelector('#msg-score')
@@ -79,6 +81,15 @@ function looseGameSound() {
 function resetStatus() {
     showScore.innerHTML = `Score: ${score}`
     showAttemps.innerHTML = `Tentativas: ${attemps + 1}`
+}
+
+function showHelp() {
+    helpContainer.classList.add('show')
+
+    window.onclick = (event) => {
+        if (event.target == helpContainer)
+            helpContainer.classList.remove('show')
+    }
 }
 
 function winGame() {
