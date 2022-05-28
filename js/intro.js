@@ -6,18 +6,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
 
-        logoSpan.forEach((span, idx) => {
+        logoSpan.forEach((span, index) => {
             setTimeout(() => {
                 span.classList.add('active')
-            }, (idx + 1) * 400)
+            }, (index + 1) * 400)
         })
 
         setTimeout(() => {
-            logoSpan.forEach((span, idx) => {
+            logoSpan.forEach((span, index) => {
                 setTimeout(() => {
                     span.classList.remove('active')
                     span.classList.add('fade')
-                }, (idx + 1) * 50)
+                }, (index + 1) * 50)
             })
         }, 2000)
 

@@ -8,6 +8,14 @@ let score
 let attemps
 
 function startGame() {
+    setTimeout(() => {
+        arrayElements.forEach((item, i) => {
+            setTimeout(() => {
+                item.classList.add('reveal')
+            }, 240 * i)
+        })
+    }, 3000);
+
     getRandomNumber = Math.floor(Math.random() * arrayElements.length)
     attemps = 2
     score = 0
