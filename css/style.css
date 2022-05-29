@@ -6,7 +6,8 @@ body {
     background-color: #020402;
     color: #fff;
     margin:  0;
-    padding: 0;   
+    padding: 0; 
+    user-select: none;  
 }
 
 .intro {
@@ -77,7 +78,6 @@ body {
     margin: 10px;
     border-radius: 5px;
     background-color:#1D1E2C;
-    user-select: none;
 }
 
 .score, .attemps, .level {
@@ -92,12 +92,14 @@ body {
     text-align: right;
 }
 
-.help-bttn-container {
-    text-align: center;
-}
-
 .help-bttn {
+    position: fixed;
+    bottom: 0;
+    right:  0;
+    margin-bottom: 10px;
+    margin-right: 10px;
     cursor: pointer;
+    max-height: 30px;
 }
 
 .help-bttn:hover {
@@ -114,7 +116,6 @@ body {
     display: none;   
     justify-content: center;
     align-items: center;
-    user-select: none;
 }
 
 .help-container.show {
@@ -151,7 +152,6 @@ body {
     grid-template-rows: 100px 100px 100px;
     grid-gap: 10px;
     font-weight: 600;
-    user-select: none;
 }
 
 .container > .grid-item {
@@ -207,7 +207,6 @@ body {
     display: none;   
     justify-content: center;
     align-items: center;
-    user-select: none;
 }
 
 .msg-container.show {
