@@ -125,6 +125,7 @@ body {
 .help-box {
     background-color: #fff;
     padding: 20px 80px;
+    margin: 10px;
     border-radius: 5px;
     text-align: center;
     max-width: 400px;
@@ -216,6 +217,7 @@ body {
 .msg-box {
     background-color: #fff;
     padding: 20px 80px;
+    margin: 10px;
     border-radius: 5px;
     text-align: center;
 }

@@ -11,9 +11,9 @@ let attemps
 
 function startGame() {
     setTimeout(() => {
-        arrayElements.forEach((item, i) => {
+        arrayElements.forEach((elements, i) => {
             setTimeout(() => {
-                item.classList.add('reveal')
+                elements.classList.add('reveal')
             }, 240 * i)
         })
     }, 3000);
@@ -68,30 +68,6 @@ function startGame() {
     }
 }
 
-function winGameSound() {
-    let winSound = new Audio('audio/winGame.wav')
-    winSound.play()
-}
-
-function looseGameSound() {
-    let looseSound = new Audio('audio/looseGame.wav')
-    looseSound.play()
-}
-
-function resetStatus() {
-    showScore.innerHTML = `Score: ${score}`
-    showAttemps.innerHTML = `Tentativas: ${attemps + 1}`
-}
-
-function showHelp() {
-    helpContainer.classList.add('show')
-
-    window.onclick = (event) => {
-        if (event.target == helpContainer)
-            helpContainer.classList.remove('show')
-    }
-}
-
 function winGame() {
     getRandomNumber = Math.floor(Math.random() * arrayElements.length)
 
@@ -119,4 +95,28 @@ function restartGame() {
         score = 0
         resetStatus()
     }
+}
+
+function showHelp() {
+    helpContainer.classList.add('show')
+
+    window.onclick = (event) => {
+        if (event.target == helpContainer)
+            helpContainer.classList.remove('show')
+    }
+}
+
+function winGameSound() {
+    let winSound = new Audio('audio/winGame.wav')
+    winSound.play()
+}
+
+function looseGameSound() {
+    let looseSound = new Audio('audio/looseGame.wav')
+    looseSound.play()
+}
+
+function resetStatus() {
+    showScore.innerHTML = `Score: ${score}`
+    showAttemps.innerHTML = `Tentativas: ${attemps + 1}`
 }
