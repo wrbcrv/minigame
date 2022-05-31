@@ -3,6 +3,7 @@ const msgContainer = document.querySelector('.msg-container')
 const restartButton = document.querySelector('#button')
 const helpButton = document.querySelector('.help-button')
 const helpContainer = document.querySelector('.help-container')
+const closeHelpBttn = document.querySelector('#close')
 let showScore = document.querySelector('#score')
 let showAttemps = document.querySelector('#attemps')
 let showBoxScore = document.querySelector('#msg-score')
@@ -103,6 +104,10 @@ function showHelp() {
     window.onclick = (event) => {
         if (event.target == helpContainer)
             helpContainer.classList.remove('show')
+    }
+
+    closeHelpBttn.onclick = () => {
+        helpContainer.classList.remove('show')
     }
 }
 
