@@ -1,61 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
     <title>Minigame</title>
 </head>
-<body onload="startGame()">
-    <div class="intro">
-        <h1 class="logo-header">
-            <span class="logo">Werbton</span> <span class="logo">Carvalho</span>
-        </h1>
-    </div>
-    <div class="status-container">
-        <span id="score" class="score">Score: 0</span>
-        <span id="attemps" class="attemps">Tentativas: 3</span>
-        <span id="level" class="level">Nível: -</span>
-    </div>
-    <span onclick="showHelp()" class="help-bttn">
-        <i class="material-icons" style="font-size: 30px;">help_outline</i>
-    </span>
-    <div class="help-container">
-        <div class="help-box">
-            <i class="material-icons close" id="close">highlight_off</i>
-            <span class="how-to-play-msg">Como jogar?</span>
-            <span class="msg">
-                Esse é um jogo de azar, onde você terá 3 tentativas para descobrir qual é o quadrado da cor verde, caso acerte, você irá receber 500 pontos, caso contrário, você irá perder todos os pontos que conseguiu até o momento. A cada 5000 pontos, o nível e a dificuldade irão aumentar.
-            </span>
-        </div>
-    </div>
+<body>
     <div class="container">
-        <div class="grid-container">
-            <button class="grid-item">0</button>
-            <button class="grid-item">1</button>
-            <button class="grid-item">2</button>
-            <button class="grid-item">3</button>
-            <button class="grid-item">4</button>
-            <button class="grid-item">5</button>
-            <button class="grid-item">6</button>
-            <button class="grid-item">7</button>
-            <button class="grid-item">8</button>
+        <div class="status-container">
+            -
         </div>
-    </div>
-    <div class="msg-container">
-        <div class="msg-box">
-            <div class="msg">
-                <span>Voce perdeu!</span>
-                <br>
-                <span>Score</span>
-            </div>
-            <span id="msg-score"></span>
-            <span id="button">Tente novamente</span>
+        <div class="grid">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
         </div>
+        <div class="play-btn">Jogar</div>
     </div>
-    <script src="js/game.js"></script>
-    <script src="js/intro.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
