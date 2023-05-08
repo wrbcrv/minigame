@@ -14,6 +14,20 @@ body {
     text-align: center;
 }
 
+.github-link {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.github-link:hover {
+    color: #ccc;
+}
+
 .grid {
     display: flex;
     justify-content: center;
@@ -47,7 +61,8 @@ body {
 }
 
 .status-container,
-.play-btn {
+.play-btn,
+.score-container {
     display: block;
     margin: 10px auto;
     padding: 10px 20px;
@@ -59,8 +74,24 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-weight: bold;
+    color: #fff;
+}
+
 .play-btn {
     cursor: pointer;
+}
+
+.play-again-btn {
+    background-color: #DD2D4A;
 }
 
 .play-btn:hover {

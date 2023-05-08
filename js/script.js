@@ -4,6 +4,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const selectedBlocks = [];
     let attempts = 3;
     let gameWon = false;
+    let score = 0;
+    let gameInProgress = false;
+
+    function updateScore() {
+        const scoreElement = document.querySelector('.score');
+        scoreElement.textContent = `${score}`;
+    }
 
     function startGame() {
         selectedBlocks.length = 0;
@@ -16,6 +23,9 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         selectBlocks();
+
+        playBtn.textContent = 'Jogar';
+        playBtn.classList.remove('play-again-btn');
     }
 
     function selectBlocks() {
@@ -38,6 +48,8 @@ window.addEventListener('DOMContentLoaded', () => {
             selectedBlocks.splice(selectedBlocks.indexOf(index), 1);
             if (selectedBlocks.length === 0) {
                 gameWon = true;
+                score += 500;
+                updateScore();
 
                 blocks.forEach(block => {
                     if (!block.classList.contains('clicked')) {
@@ -47,6 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
 
                 showMessage('Você venceu!');
+                gameInProgress = false;
             }
         } else {
             this.classList.add('red');
@@ -64,6 +77,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
 
                 showMessage('Você perdeu!');
+
+                playBtn.textContent = 'Tentar novamente';
+                playBtn.classList.add('play-again-btn');
+                gameInProgress = false;
             }
         }
     }
@@ -74,14 +91,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             statusContainer.textContent = '-';
-
-            setTimeout(() => {
-                messageContainer.remove();
-            }, 500);
         }, 2000);
     }
 
-    playBtn.addEventListener('click', startGame);
+    playBtn.addEventListener('click', function () {
+        if (gameInProgress) {
+            return;
+        }
+
+        gameInProgress = true;
+
+        if (this.classList.contains('play-again-btn')) {
+            startGame();
+        } else {
+            startGame();
+            this.textContent = 'Jogar';
+        }
+    });
 });
 
 function winGameSound() {
