@@ -6,6 +6,26 @@ window.addEventListener('DOMContentLoaded', () => {
     let gameWon = false;
     let score = 0;
     let gameInProgress = false;
+    let canPlay = true;
+
+    function showMessage(message) {
+        const messageDiv = document.querySelector('.message');
+        messageDiv.style.display = 'block';
+        messageDiv.offsetTop;
+        messageDiv.style.top = '0';
+        messageDiv.textContent = message;
+        messageDiv.classList.add('message-show');
+        canPlay = false;
+
+        setTimeout(function () {
+            messageDiv.style.top = '-50px';
+            setTimeout(function () {
+                messageDiv.style.display = 'none';
+                messageDiv.classList.remove('message-show');
+                canPlay = true;
+            }, 500);
+        }, 3000);
+    }
 
     function updateScore() {
         const scoreElement = document.querySelector('.score');
@@ -85,19 +105,12 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function showMessage(message) {
-        const statusContainer = document.querySelector('.status-container');
-        statusContainer.textContent = message;
-
-        setTimeout(() => {
-            statusContainer.textContent = '-';
-        }, 2000);
-    }
-
     playBtn.addEventListener('click', function () {
-        if (gameInProgress) {
+        if (!canPlay)
             return;
-        }
+
+        if (gameInProgress)
+            return;
 
         gameInProgress = true;
 

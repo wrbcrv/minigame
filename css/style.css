@@ -8,6 +8,24 @@ body {
     align-items: center;
     background-color: #1D1E2C;
     font-family: monospace;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.message {
+    display: none;
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    transition: top 0.5s;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 .container {
@@ -60,17 +78,14 @@ body {
     background-color: #DD2D4A;
 }
 
-.status-container,
-.play-btn,
-.score-container {
+.score-container,
+.play-btn {
     display: block;
     margin: 10px auto;
     padding: 10px 20px;
     border-radius: 5px;
     background-color: #0077be;
     color: #fff;
-    font-size: 16px;
-    font-weight: bold;
     transition: all 0.2s ease-in-out;
 }
 
@@ -82,7 +97,6 @@ body {
 }
 
 .score {
-    font-weight: bold;
     color: #fff;
 }
 
@@ -96,17 +110,4 @@ body {
 
 .play-btn:hover {
     background-color: #005fa3;
-}
-
-.message {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.message-show {
-    opacity: 1;
-}
-
-.message-hide {
-    opacity: 0;
 }
