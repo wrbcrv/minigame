@@ -19,7 +19,3 @@ Você pode personalizar o estilo do jogo ajustando as regras CSS no arquivo `sty
 ## Requisitos
 
 Navegador da web com suporte a JavaScript.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
