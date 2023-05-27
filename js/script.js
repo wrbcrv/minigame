@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const blocks = document.querySelectorAll('.block');
-    const playBtn = document.querySelector('.play-btn');
-    const selectedBlocks = [];
+    const BLOCKS = document.querySelectorAll('.block');
+    const PLAY_BTN = document.querySelector('.play-btn');
+    const SELECTED_BLOCKS = [];
     let attempts = 3;
     let gameWon = false;
     let score = 0;
@@ -9,50 +9,50 @@ window.addEventListener('DOMContentLoaded', () => {
     let canPlay = true;
 
     function showMessage(message) {
-        const messageDiv = document.querySelector('.message');
-        messageDiv.style.display = 'block';
-        messageDiv.offsetTop;
-        messageDiv.style.top = '0';
-        messageDiv.textContent = message;
-        messageDiv.classList.add('message-show');
+        const MESSAGE_DIV = document.querySelector('.message');
+        MESSAGE_DIV.style.display = 'block';
+        MESSAGE_DIV.offsetTop;
+        MESSAGE_DIV.style.top = '0';
+        MESSAGE_DIV.textContent = message;
+        MESSAGE_DIV.classList.add('message-show');
         canPlay = false;
 
         setTimeout(function () {
-            messageDiv.style.top = '-50px';
+            MESSAGE_DIV.style.top = '-50px';
             setTimeout(function () {
-                messageDiv.style.display = 'none';
-                messageDiv.classList.remove('message-show');
+                MESSAGE_DIV.style.display = 'none';
+                MESSAGE_DIV.classList.remove('message-show');
                 canPlay = true;
             }, 500);
         }, 3000);
     }
 
     function updateScore() {
-        const scoreElement = document.querySelector('.score');
-        scoreElement.textContent = `${score}`;
+        const SCORE_ELEMENT = document.querySelector('.score');
+        SCORE_ELEMENT.textContent = `${score}`;
     }
 
     function startGame() {
-        selectedBlocks.length = 0;
+        SELECTED_BLOCKS.length = 0;
         attempts = 3;
         gameWon = false;
 
-        blocks.forEach(block => {
+        BLOCKS.forEach(block => {
             block.classList.remove('green', 'red', 'clicked');
             block.addEventListener('click', blockClickHandler);
         });
 
         selectBlocks();
 
-        playBtn.textContent = 'Jogar';
-        playBtn.classList.remove('play-again-btn');
+        PLAY_BTN.textContent = 'Jogar';
+        PLAY_BTN.classList.remove('play-again-btn');
     }
 
     function selectBlocks() {
-        while (selectedBlocks.length < 3) {
-            const index = Math.floor(Math.random() * 9);
-            if (!selectedBlocks.includes(index)) {
-                selectedBlocks.push(index);
+        while (SELECTED_BLOCKS.length < 3) {
+            const INDEX = Math.floor(Math.random() * 9);
+            if (!SELECTED_BLOCKS.includes(INDEX)) {
+                SELECTED_BLOCKS.push(INDEX);
             }
         }
     }
@@ -60,18 +60,18 @@ window.addEventListener('DOMContentLoaded', () => {
     function blockClickHandler() {
         if (gameWon || this.classList.contains('clicked')) return;
         this.classList.add('clicked');
-        const index = Array.from(blocks).indexOf(this);
-        if (selectedBlocks.includes(index)) {
+        const INDEX = Array.from(BLOCKS).indexOf(this);
+        if (SELECTED_BLOCKS.includes(INDEX)) {
             this.classList.add('green');
             winGameSound();
 
-            selectedBlocks.splice(selectedBlocks.indexOf(index), 1);
-            if (selectedBlocks.length === 0) {
+            SELECTED_BLOCKS.splice(SELECTED_BLOCKS.indexOf(INDEX), 1);
+            if (SELECTED_BLOCKS.length === 0) {
                 gameWon = true;
                 score += 500;
                 updateScore();
 
-                blocks.forEach(block => {
+                BLOCKS.forEach(block => {
                     if (!block.classList.contains('clicked')) {
                         block.classList.add('red');
                     }
@@ -87,25 +87,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
             attempts--;
             if (attempts === 0) {
-                selectedBlocks.forEach(index => {
-                    blocks[index].classList.add('green');
-                    blocks[index].classList.remove('red');
+                SELECTED_BLOCKS.forEach(index => {
+                    BLOCKS[index].classList.add('green');
+                    BLOCKS[index].classList.remove('red');
                 });
 
-                blocks.forEach(block => {
+                BLOCKS.forEach(block => {
                     block.removeEventListener('click', blockClickHandler);
                 });
 
                 showMessage('Você perdeu!');
 
-                playBtn.textContent = 'Tentar novamente';
-                playBtn.classList.add('play-again-btn');
+                PLAY_BTN.textContent = 'Tentar novamente';
+                PLAY_BTN.classList.add('play-again-btn');
                 gameInProgress = false;
             }
         }
     }
 
-    playBtn.addEventListener('click', function () {
+    PLAY_BTN.addEventListener('click', function () {
         if (!canPlay)
             return;
 

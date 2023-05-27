@@ -111,3 +111,40 @@ body {
 .play-btn:hover {
     background-color: #005fa3;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 2px;
+    animation: colorChange 1.5s infinite;
+}
+
+.circle:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.circle:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #ccc;
+    }
+
+    50% {
+        background-color: #999;
+    }
+
+    100% {
+        background-color: #ccc;
+    }
+}
